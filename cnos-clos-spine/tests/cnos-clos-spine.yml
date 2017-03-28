@@ -1,0 +1,8 @@
+# Common code to configure all Lenovo CLOS Spine BGP switches
+- name: Module to Configure Lenovo CLOS Spine BGP switches
+  hosts: cnos-clos-spine
+  gather_facts: no
+  connection: local
+
+  roles:
+   - cnos-clos-spine 
