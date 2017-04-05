@@ -5,4 +5,4 @@
   connection: local
 
   roles:
-   - cnos-clos-spine 
+   - lenovo.cnos-clos-spine 
