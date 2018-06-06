@@ -5,14 +5,14 @@
   with_items: "{{cnos_clos_spine_common_data}}"
 
 - name: Applying common Clos BGP CLI commands to all spine switches
-  cnos_template: host={{inventory_hostname}} username={{ hostvars[inventory_hostname]['username']}}  password={{ hostvars[inventory_hostname]['password']}} deviceType={{ hostvars[inventory_hostname]['deviceType']}} commandfile=./commands/cnos_clos_spine_{{ inventory_hostname }}_common_commands.txt outputfile=./results/cnos_clos_spine_{{ inventory_hostname }}_common_output.txt
+  cnos_template: host={{inventory_hostname}} username={{ hostvars[inventory_hostname]['ansible_ssh_user']}}  password={{ hostvars[inventory_hostname]['ansible_ssh_pass']}} deviceType={{ hostvars[inventory_hostname]['deviceType']}} commandfile=./commands/cnos_clos_spine_{{ inventory_hostname }}_common_commands.txt outputfile=./results/cnos_clos_spine_{{ inventory_hostname }}_common_output.txt
 
 - name: Replace unique Clos BGP CLI command template with unique spine values for SP21
   template: src=clos_spine_bgp_unique.j2 dest=./commands/cnos_clos_spine_{{ inventory_hostname }}_SP21_commands.txt
   with_items: "{{cnos_clos_spine_SP21_data}}"
 
 - name: Applying unique Clos BGP CLI commands to SP21 switch
-  cnos_conditional_template: host={{inventory_hostname}} commandfile=./commands/cnos_clos_spine_{{ inventory_hostname }}_SP21_commands.txt username={{ hostvars[inventory_hostname]['username']}} password={{ hostvars[inventory_hostname]['password']}} deviceType={{ hostvars[inventory_hostname]['deviceType']}} condition={{ hostvars[inventory_hostname]['condition']}} flag='{{item.flag}}' outputfile=./results/cnos_clos_spine_{{ inventory_hostname }}_SP21_output.txt
+  cnos_conditional_template: host={{inventory_hostname}} commandfile=./commands/cnos_clos_spine_{{ inventory_hostname }}_SP21_commands.txt username={{ hostvars[inventory_hostname]['ansible_ssh_user']}} password={{ hostvars[inventory_hostname]['ansible_ssh_pass']}} deviceType={{ hostvars[inventory_hostname]['deviceType']}} condition={{ hostvars[inventory_hostname]['condition']}} flag='{{item.flag}}' outputfile=./results/cnos_clos_spine_{{ inventory_hostname }}_SP21_output.txt
   with_items: "{{cnos_clos_spine_SP21_data}}"
 
 - name: Replace unique Clos BGP CLI command template with unique spine values for SP22
@@ -20,7 +20,7 @@
   with_items: "{{cnos_clos_spine_SP22_data}}"
   
 - name: Applying unique Clos BGP CLI commands to SP22 switch
-  cnos_conditional_template: host={{inventory_hostname}} commandfile=./commands/cnos_clos_spine_{{ inventory_hostname }}_SP22_commands.txt username={{ hostvars[inventory_hostname]['username']}} password={{ hostvars[inventory_hostname]['password']}} deviceType={{ hostvars[inventory_hostname]['deviceType']}} condition={{ hostvars[inventory_hostname]['condition']}} flag='{{item.flag}}' outputfile=./results/cnos_clos_spine_{{ inventory_hostname }}_SP22_output.txt
+  cnos_conditional_template: host={{inventory_hostname}} commandfile=./commands/cnos_clos_spine_{{ inventory_hostname }}_SP22_commands.txt username={{ hostvars[inventory_hostname]['ansible_ssh_user']}} password={{ hostvars[inventory_hostname]['ansible_ssh_pass']}} deviceType={{ hostvars[inventory_hostname]['deviceType']}} condition={{ hostvars[inventory_hostname]['condition']}} flag='{{item.flag}}' outputfile=./results/cnos_clos_spine_{{ inventory_hostname }}_SP22_output.txt
   with_items: "{{cnos_clos_spine_SP22_data}}"
   
 - name: Replace CLOS BGP Spine Switches CLI show template with values
@@ -28,6 +28,6 @@
   with_items: "{{cnos_clos_spine_show}}"
 
 - name: Applying CLI show commands CLOS BGP Spine Switches
-  cnos_template: host={{ inventory_hostname }} username={{ hostvars[inventory_hostname]['username']}}  password={{ hostvars[inventory_hostname]['password']}} deviceType={{ hostvars[inventory_hostname]['deviceType']}} commandfile=./commands/cnos_clos_spine_{{ inventory_hostname }}_show_commands.txt outputfile=./results/cnos_clos_spine_{{ inventory_hostname }}_show_output.txt
+  cnos_template: host={{ inventory_hostname }} username={{ hostvars[inventory_hostname]['ansible_ssh_user']}}  password={{ hostvars[inventory_hostname]['ansible_ssh_pass']}} deviceType={{ hostvars[inventory_hostname]['deviceType']}} commandfile=./commands/cnos_clos_spine_{{ inventory_hostname }}_show_commands.txt outputfile=./results/cnos_clos_spine_{{ inventory_hostname }}_show_output.txt
   with_items: "{{cnos_clos_spine_show}}"
 # Completed file
