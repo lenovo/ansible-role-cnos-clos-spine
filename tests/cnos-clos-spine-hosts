@@ -12,5 +12,5 @@
 # Please change <username> and <password> with appropriate value for your switch
 
 [cnos-clos-spine]
-10.240.175.111   username=<username> password=<password> deviceType=g8272_cnos condition=SP21
-10.240.175.112   username=<username> password=<password> deviceType=g8272_cnos condition=SP22
+10.240.175.111   ansible_network_os=cnos ansible_ssh_user=<username> ansible_ssh_pass=<password> deviceType=g8272_cnos condition=SP21
+10.240.175.112   ansible_network_os=cnos ansible_ssh_user=<username> ansible_ssh_pass=<password> deviceType=g8272_cnos condition=SP22
