@@ -1,13 +1,13 @@
 interface Ethernet {{item.spine_to_leaf1_interface1}}
  description {{item.spine_to_leaf1_description1}}
- no bridge-port
+ no switchport
  ip address {{item.spine_to_leaf1_ip1}}
  exit
 
 !
 interface Ethernet {{item.spine_to_leaf1_interface2}}
  description {{item.spine_to_leaf1_description2}}
- no bridge-port
+ no switchport
  ip address {{item.spine_to_leaf1_ip2}}
  exit
 !
@@ -19,37 +19,37 @@ interface Ethernet {{item.spine_to_leaf2_interface1}}
 !
 interface Ethernet {{item.spine_to_leaf2_interface2}}
  description {{item.spine_to_leaf2_description2}}
- no bridge-port
+ no switchport
  ip address {{item.spine_to_leaf2_ip2}}
  exit
 !
 interface Ethernet {{item.spine_to_leaf3_interface1}}
  description {{item.spine_to_leaf3_description1}}
- no bridge-port
+ no switchport
  ip address {{item.spine_to_leaf3_ip1}}
  exit
 
 !
 interface Ethernet {{item.spine_to_leaf3_interface2}}
  description {{item.spine_to_leaf3_description2}}
- no bridge-port
+ no switchport
  ip address {{item.spine_to_leaf3_ip2}}
  exit
 !
 interface Ethernet {{item.spine_to_leaf4_interface1}}
  description {{item.spine_to_leaf4_description1}}
- no bridge-port
+ no switchport
  ip address {{item.spine_to_leaf4_ip1}}
  exit
 !
 interface Ethernet {{item.spine_to_leaf4_interface2}}
  description {{item.spine_to_leaf4_description2}}
- no bridge-port
+ no switchport
  ip address {{item.spine_to_leaf4_ip2}}
  exit
 !
 interface loopback 0
- no bridge-port
+ no switchport
  service-policy input copp-system-policy
  exit
 !
