@@ -55,7 +55,7 @@
       username: "{{ hostvars[inventory_hostname]['ansible_ssh_user'] }}"
       password: "{{ hostvars[inventory_hostname]['ansible_ssh_pass'] }}"
       deviceType: "{{ hostvars[inventory_hostname]['deviceType'] }}"
-      commandfile: "./commands/cnos_clos_spine_{{ inventory_hostname }}_show_commands.txt
+      commandfile: ./commands/cnos_clos_spine_{{ inventory_hostname }}_show_commands.txt
       outputfile: ./results/cnos_clos_spine_{{ inventory_hostname }}_show_output.txt
   with_items: "{{ cnos_clos_spine_show }}"
 # Completed file
