@@ -18,11 +18,11 @@
 - name: Replace unique Clos BGP CLI command template with unique spine values for SP22
   template: src=clos_spine_bgp_unique.j2 dest=./commands/cnos_clos_spine_{{ inventory_hostname }}_SP22_commands.txt
   with_items: "{{ cnos_clos_spine_SP22_data }}"
-  
+
 - name: Applying unique Clos BGP CLI commands to SP22 switch
   cnos_conditional_template: host={{ inventory_hostname }} commandfile=./commands/cnos_clos_spine_{{ inventory_hostname }}_SP22_commands.txt username={{ hostvars[inventory_hostname]['ansible_ssh_user'] }} password={{ hostvars[inventory_hostname]['ansible_ssh_pass'] }} deviceType={{ hostvars[inventory_hostname]['deviceType'] }} condition={{ hostvars[inventory_hostname]['condition'] }} flag='{{ item.flag }}' outputfile=./results/cnos_clos_spine_{{ inventory_hostname }}_SP22_output.txt
   with_items: "{{ cnos_clos_spine_SP22_data }}"
-  
+
 - name: Replace CLOS BGP Spine Switches CLI show template with values
   template: src=clos_spine_bgp_show.j2 dest=./commands/cnos_clos_spine_{{ inventory_hostname }}_show_commands.txt
   with_items: "{{ cnos_clos_spine_show }}"
