@@ -14,7 +14,7 @@ galaxy_info:
     versions:
     - all
   galaxy_tags:
-    - Lenovo
+    - lenovo
     - cnos
     - clos
     - networking
